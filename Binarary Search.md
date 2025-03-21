@@ -56,10 +56,10 @@ return l === target ? l : -1; // not found
 * Ends loop when `l === r`, therefore `while (l < r)`.
 * Once the loop is ended, we look for the target at `l - 1`
 * Another thing to note is that, `r` should start at `n` rather than `n - 1`.
-* *Question* Why don't we let `l` start at `1` too? Actually, `l` should start at `1`.
+* *Question* Why don't we let `l` start at `1` too? Not sure yet.
 
 ```
-let l = 1, h = n, m;
+let l = 0, h = n, m;
 
 while (l < r) {
   m = ~~((l + r) / 2);
@@ -69,19 +69,4 @@ while (l < r) {
 }
 
 return l > 0 && l - 1 === target ? l : -1; // not found
-```
-
-* *Question* Then why don't we shift `l` and `h` to the left by 1?
-
-```
-let l = 0, h = n - 1, m;
-
-while (l < r) {
-  m = ~~((l + r) / 2);
-
-  if (m + 1 <= target) l = m + 1;
-  else r = m;
-}
-
-return l === target ? l : -1; // not found
 ```
